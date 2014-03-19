@@ -1,11 +1,13 @@
 package exaliquo;
 
+import cpw.mods.fml.common.Loader;
 import net.minecraft.block.Block;
 import net.minecraftforge.oredict.OreDictionary;
 import exnihilo.registries.HammerRegistry;
 
-import static exaliquo.ModIDs.getIDs;
-import exaliquo.ModIDs.Info;
+import static exaliquo.data.ModIDs.getIDs;
+import exaliquo.data.Configurations;
+import exaliquo.data.ModIDs.Info;
 
 public class BonusHammerTime {
 
@@ -40,5 +42,9 @@ public class BonusHammerTime {
 		HammerRegistry.register(grass, 0, getIDs(Info.shard), 3, 0.1F, 0.03F);
 		HammerRegistry.register(obsidian, 0, getIDs(Info.shard), 4, 0.25F, 0.05F);
 		HammerRegistry.register(winthatfight, 0, getIDs(Info.shard), 5, 0.15F, 0.05F);
+		if (Loader.isModLoaded("NetherOres") && Configurations.ninjaFeesh)
+		{
+			HammerRegistry.register(getIDs(Info.hellfeesh), 0, 0, 0, 0.0F, 0.0F);
+		}
 	}
 }
